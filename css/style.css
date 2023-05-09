@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+
+
+header {
+    text-align: center;
+    padding: 2px;
+    font-size: 100%;
+    background-image: linear-gradient(to right, rgb(136, 136, 202), rgb(3, 0, 96));
+    color: white;
+   }
+
+   h1 {
+    margin: 5px 200px 5px 500px;
+   }
+
+main {
+    display: flex;
+}
+
+#location {
+    display: flex;
+    flex-flow:column wrap;
+    max-width:25vw;
+    width: 300px;
+    padding-left: 10px;
+}
+
+
+h2 {
+    font-size: 150%;
+    margin: 5px;
+}
+
+input {
+    height: 30px;
+    margin: 5px 0px;
+}
+
+#search {
+    height: 30px;
+    color:white;
+    background-color: rgb(62, 139, 221);
+    border-radius: 5px;
+    border: none;
+}
+
+#container {
+    width:300px;
+    border-top: solid gray 2px;
+    padding-top:20px;
+}
+
+#history {
+    height: 30px;
+    width: 300px;
+    color:black;
+    background-color:rgb(165, 164, 164);
+    border-radius: 5px;
+    border: none;
+    display: none;
+}
+
+#forecast{
+    display:flex;
+    flex-flow: column wrap;
+}
+
+#current{
+    width: 60vw;
+    height:fit-content;
+    border: 1px solid black;
+    margin-left: 20px;
+}
+
+li {
+    list-style: none;
+    font-size: 80%;
+    margin-left: -30px;
+    padding:7px;
+}
+
+#caption {
+    padding:0;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+#future {
+    width:60vw;
+    margin-left:20px;
+    justify-content: space-between;
+}
+
+#frcst {
+    background-color: rgb(3, 12, 63);
+    color:white;
+    width: 100px;
+    visibility: hidden;
+    margin-top:50px;
+}
+
+.fut {
+    margin-left:-40px;
+    padding:10px;
+    font-weight: bold;
+}
+
+#humidity {
+    padding-bottom: 20px;
+}
+
+.img1 {
+    position: relative;
+    top:15px;
+    width: 40px;
+
+}

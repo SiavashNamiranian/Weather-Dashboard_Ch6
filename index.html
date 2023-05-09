@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/advancedFormat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/toArray.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>five day forecast</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+      <section id="location">
+        <h2>Search for a city:</h2>
+        <input id="input"/>
+        <button id="search">Search</button>
+        <p id="container"><button id="history"></button></p>
+      </section>
+      <section id="forecast">
+        <ol id="current">
+          <li id="caption">city of interest</li>
+          <li>Temp:</li>
+          <li>Wind:</li>
+          <li>Humidity:</li>
+        </ol>
+        <section id="future">
+          <h3> 5-Day Forecast:</h3>
+          <ol id="frcst">
+            <li class="fut"></li>
+            <Li class="fut"></Li>
+            <Li class="fut"></Li>
+            <Li class="fut"></Li>
+          </ol>
+
+        </section>
+      </section>
+
+
+
+    </main>  
+    
+    <script src="./java/script.js"></script>
+  </body>
+</html>

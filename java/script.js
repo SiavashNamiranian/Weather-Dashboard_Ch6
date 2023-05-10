@@ -80,34 +80,37 @@ searchEl.addEventListener("click", function(select){
     console.log(data);
     console.log(data.list[8]);
     console.log(data.list[0].dt_txt);
-    var select = [data.list];
-    console.log(select);
 
-   
-    for (var i=1; i<6; i++) {
 
-      var a = 0
+    for (var i=1; i<40; i++) {
+
+    if(data.list[i].dt_txt == dayjs().add(1, "d").format('YYYY-MM-DD')){
+    console.log(found + i)
+    };
+
+
       futEl.setAttribute("style", "visibility:visible");
 
       futEl.children[0].textContent = dayjs().add(i, "d").format('MM/DD/YYYY');
       console.log(select[0].dt_txt);
-      if([0][0].dt_txt==dayjs().add(i, "d").format('YYYY-MM-DD')){console.log("yes")};
+    
 
       var icon2 = data.list[a].weather[a].icon
       img2.src = "http://openweathermap.org/img/wn/"+icon2+"@2x.png";
       futEl.children[0].appendChild(img2);
       futEl.children[0].setAttribute("style","margin-top:-20px");
 
-      futEl.children[1].textContent = "Temp: "+ data.list[a].main.temp + " °F";
+      futEl.children[1].textContent = "Temp: "+ data.list[0].main.temp + " °F";
 
-      futEl.children[2].textContent = "Wind: "+ data.list[a].wind.speed + " MPH";
+      futEl.children[2].textContent = "Wind: "+ data.list[0].wind.speed + " MPH";
 
-      futEl.children[3].textContent ="Humidity: "+ data.list[a].main.humidity + " %";
+      futEl.children[3].textContent ="Humidity: "+ data.list[0].main.humidity + " %";
 
      return a = a+8;
      return i++;
      console.log(a);
   }
+})
 
 
     console.log(data.list[0].weather[0].icon);
@@ -117,7 +120,7 @@ searchEl.addEventListener("click", function(select){
 
   })
 
-});
+//});
 
 
 

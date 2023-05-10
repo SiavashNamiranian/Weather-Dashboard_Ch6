@@ -3,7 +3,7 @@ var searchEl = document.getElementById('search');
 var selecEl = document.getElementById('history');
 var cityEl = document.getElementById('caption');
 var currEl = document.getElementById('current');
-var futEl = document.getElementById('frcst');
+var forEl = document.getElementById('future')
 
 var img1 = document.createElement("img");
 var img2 = document.createElement("img");
@@ -18,7 +18,7 @@ console.log(dayjs().add(1, "d").format('MM/DD/YYYY'));
 
 
 searchEl.addEventListener("click", function(select){
-  select.preventDefault();
+  // select.preventDefault();
   console.log(inputEl.value);
   var inPut = inputEl.value;
   selection = inputEl.value
@@ -77,71 +77,52 @@ searchEl.addEventListener("click", function(select){
     return response.json();
   })
   .then(function(data){
-    console.log(data);
-    console.log(data.list[8]);
-    console.log(data.list[0].dt_txt);
-
-
-    for (var i=1; i<40; i++) {
-
-    if(data.list[i].dt_txt == dayjs().add(1, "d").format('YYYY-MM-DD')){
-    console.log(found + i)
-    };
-
-
-      futEl.setAttribute("style", "visibility:visible");
-
-      futEl.children[0].textContent = dayjs().add(i, "d").format('MM/DD/YYYY');
-      console.log(select[0].dt_txt);
     
+    console.log(data);
+    console.log(data.list);
+    for (a=0; a<40; a++){
+    console.log(data.list[a].dt_txt);
+    console.log(typeof(data.list[a].dt_txt));
+    if((data.list[a].dt_txt).includes("12:00:00")){
+    console.log("yes");
 
-      var icon2 = data.list[a].weather[a].icon
-      img2.src = "http://openweathermap.org/img/wn/"+icon2+"@2x.png";
-      futEl.children[0].appendChild(img2);
-      futEl.children[0].setAttribute("style","margin-top:-20px");
 
-      futEl.children[1].textContent = "Temp: "+ data.list[0].main.temp + " °F";
+    var olEl = document.createElement("ol");
+    forEl.append(olEl);
+    olEl.setAttribute("id","frcst");
+    olEl.setAttribute("style", "visibility=visible");
+    // console.log(dayjs().add(i, "d").format('MM/DD/YYYY'));
+    var date = document.createElement("li")
+    date.setAttribute("class", "fut");
+    olEl.append(date);
+    date.textContent= data.list[a].dt_txt
+    // date.textContent=dayjs().add(i, "d").format('MM/DD/YYYY');
+    console.log(data.list);
+   
+    var icon2 = data.list[a].weather.icon
+    img2.src = "http://openweathermap.org/img/wn/"+icon2+"@2x.png";
+    date.appendChild(img2);
+    img2.setAttribute("style","margin-top:-20px");
 
-      futEl.children[2].textContent = "Wind: "+ data.list[0].wind.speed + " MPH";
+    var temp = document.createElement("li")
+    temp.textContent = "Temp: "+ data.list[0].main.temp + " °F";
+    olEl.append (temp);
 
-      futEl.children[3].textContent ="Humidity: "+ data.list[0].main.humidity + " %";
 
-     return a = a+8;
-     return i++;
-     console.log(a);
-  }
+    var wind = document.createElement("li")
+    wind.textContent = "Wind: "+ data.list[0].wind.speed + " MPH";
+    olEl.append (wind);
+
+
+    var humid = document.createElement("li")
+    humid.textContent ="Humidity: "+ data.list[0].main.humidity + " %";
+    olEl.append (humid);
+    console.log(data.list);
+
+    }};
+
+  });
+
 })
 
-
-    console.log(data.list[0].weather[0].icon);
-    console.log(data.list[0].main.temp);
-    console.log(data.list[0].main.humidity);
-  })
-
-  })
-
-//});
-
-
-
-// selecEl.addEventListener('click', function(event){
-// selection = event.target.value
-// })
-
-
-
-// for (i=0; i<city.length; i++) {
-//   selecEl.text(city[i]);
-// }
-
-// fetch(finalURL)
-//   .then(function(response){
-//    return response.json();
-//    })
-
-// }
-
-
-//    .then(function(data){
-//      console.log(data);
-//    })
+})

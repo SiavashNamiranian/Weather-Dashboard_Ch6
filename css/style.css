@@ -91,7 +91,15 @@ li {
     font-weight: bold;
 }
 
+
+h3{
+    margin-left: 20px;
+}
+
+
 #future {
+    display: flex;
+    flex-flow: row;
     width:60vw;
     margin-left:20px;
     justify-content: space-between;
@@ -101,7 +109,7 @@ li {
     background-color: rgb(3, 12, 63);
     color:white;
     width: 100px;
-    visibility: hidden;
+    /* visibility: hidden; */
     margin-top:50px;
 }
 

@@ -17,11 +17,13 @@ var lon;
 
 
 
-searchEl.addEventListener("click", function(select){
-  // select.preventDefault();
+searchEl.addEventListener("click", function(){
+
+  forEl.innerHTML = "";
   console.log(inputEl.value);
   var inPut = inputEl.value;
   selection = inputEl.value;
+  
   selecEl=document.createElement("button");
   selecEl.setAttribute("id", "history");
   selecEl.textContent = inputEl.value;
@@ -99,7 +101,7 @@ searchEl.addEventListener("click", function(select){
     forEl.append(olEl);
     olEl.setAttribute("id","frcst");
     olEl.setAttribute("style", "visibility:visible");
-    // console.log(dayjs().add(i, "d").format('MM/DD/YYYY'));
+    
     var date = document.createElement("li")
     date.textContent= data.list[a].dt_txt
     date.setAttribute("class", "fut");

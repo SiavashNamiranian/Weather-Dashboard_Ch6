@@ -20,8 +20,6 @@ var lat;
 var lon;
 
 
-
-
   searchEl.addEventListener("click", function(event){
     event.preventDefault();
     forEl.innerHTML = "";

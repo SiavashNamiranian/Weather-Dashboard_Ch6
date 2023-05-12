@@ -4,12 +4,17 @@ var searchEl = document.getElementById('search');
 
 var cityEl = document.getElementById('caption');
 var currEl = document.getElementById('current');
-var forEl = document.getElementById('future')
+var forEl = document.getElementById('future');
+var histEl = document.getElementById('history');
+
+
 
 var img1 = document.createElement("img1");
 var img2 = document.createElement("img2");
+img1.setAttribute("class", "img");
+img2.setAttribute("class", "img");
 
-img1.setAttribute("class", "img1");
+
 var selection;
 var lat;
 var lon;
@@ -17,11 +22,28 @@ var lon;
 
 
 
-searchEl.addEventListener("click", function(){
+  searchEl.addEventListener("click", function(event){
+    event.preventDefault();
+    forEl.innerHTML = "";
+    console.log(inputEl.value);
+    if(inputEl) {
+      procesInput(inputEl)
+    }
+  });
+ 
 
+  console.log(histEl);
+  histEl.addEventListener("click", function(event){
+  event.preventDefault();
   forEl.innerHTML = "";
-  console.log(inputEl.value);
-  var inPut = inputEl.value;
+  console.log(histEl.textContent);
+  console.log(histEl.value);
+
+  });
+
+
+function procesInput(inputEl) {
+  
   selection = inputEl.value;
   
   selecEl=document.createElement("button");
@@ -29,6 +51,8 @@ searchEl.addEventListener("click", function(){
   selecEl.textContent = inputEl.value;
   selecEl.setAttribute("style", "display:inline");
   plchldEl.append(selecEl);
+
+
 
   
   console.log(selection);
@@ -61,7 +85,9 @@ searchEl.addEventListener("click", function(){
 
     cityEl.textContent = data.name + dayjs().format(' MM/DD/YYYY');
     var icon1 = data.weather[0].icon;
+    console.log(icon1);
     img1.src = `http://openweathermap.org/img/wn/${icon1}@2x.png`;
+    console.log(img1.src);
     cityEl.appendChild(img1);
     cityEl.setAttribute("style","margin-top:-1px");
 
@@ -91,11 +117,12 @@ searchEl.addEventListener("click", function(){
     console.log(data.list[a].dt_txt);
 
     if(data.list[a].dt_txt.includes("12:00:00")){
-    console.log(data.list[a])
+    console.log(data.list[a]);
 
-    var icon2 = data.list[a].weather[0].icon
+    var icon2 = data.list[a].weather[0].icon;
     console.log(icon2);
     img2.src = `http://openweathermap.org/img/wn/${icon2}@2x.png`;
+    console.log(img2.src);
   
     var olEl = document.createElement("ol");
     forEl.append(olEl);
@@ -103,28 +130,24 @@ searchEl.addEventListener("click", function(){
     olEl.setAttribute("style", "visibility:visible");
     
     var date = document.createElement("li")
-    date.textContent= data.list[a].dt_txt
+    date.textContent= new Date(data.list[a].dt_txt).toLocaleDateString();
     date.setAttribute("class", "fut");
     olEl.append(date);
   
-    // date.textContent=dayjs().add(i, "d").format('MM/DD/YYYY');
-    
-   
-    
-    date.append(img2);
+    olEl.append(img2);
     img2.setAttribute("style","margin-top:-20px");
 
-    var temp = document.createElement("li")
+    var temp = document.createElement("li");
     temp.textContent = "Temp: "+ data.list[a].main.temp + " °F";
     olEl.append (temp);
 
 
-    var wind = document.createElement("li")
+    var wind = document.createElement("li");
     wind.textContent = "Wind: "+ data.list[a].wind.speed + " MPH";
     olEl.append (wind);
 
 
-    var humid = document.createElement("li")
+    var humid = document.createElement("li");
     humid.textContent ="Humidity: "+ data.list[a].main.humidity + " %";
     olEl.append (humid);
     
@@ -135,4 +158,5 @@ searchEl.addEventListener("click", function(){
 
 })
 
-})
+};
+

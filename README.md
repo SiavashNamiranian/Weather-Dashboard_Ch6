@@ -2,7 +2,7 @@
 
 ## Description
 
-This is weather dashboard created from scratch to match the provided mock page, page uses API to request city of interest lon amd lat coordinate which it uses to acquire current and five day weather forecast
+This is weather dashboard created from scratch to match the provided mock page, page uses API to request city of interest lon amd lat coordinate which it uses to acquire current and five day weather forecast; unfortanately recall is not fully functional and icons are not showing up, despite loging on console,
 
 https://github.com/SiavashNamiranian/Weather-Dashboard_Ch6
 <br>

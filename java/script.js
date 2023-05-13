@@ -9,8 +9,8 @@ var histEl = document.getElementById('history');
 
 
 
-var img1 = document.createElement("img1");
-var img2 = document.createElement("img2");
+var img1 = document.createElement("img");
+var img2 = document.createElement("img");
 img1.setAttribute("class", "img");
 img2.setAttribute("class", "img");
 

@@ -21,6 +21,11 @@ var lon;
 
 
   searchEl.addEventListener("click", function(event){
+    console.log(event);
+    if(!inputEl.value){
+      alert("please enter a city name!");
+      return
+    }
     event.preventDefault();
     forEl.innerHTML = "";
     console.log(inputEl.value);
@@ -29,12 +34,7 @@ var lon;
     }
   });
  
-
-  
-
-
-
-function procesInput(inputEl) {
+  function procesInput(inputEl) {
   
   selection = inputEl.value;
   

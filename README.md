@@ -2,7 +2,7 @@
 
 ## Description
 
-This is weather dashboard created from scratch to match the provided mock page, page uses API to request city of interest lon amd lat coordinate which it uses to acquire current and five day weather forecast; unfortanately recall is not fully functional and icons are not showing up, despite loging on console,
+This is weather dashboard created from scratch to match the provided mock page, page uses API to request city of interest lon amd lat coordinate which it uses to acquire current and five day weather forecast; recall is functional, but some icons are not showing up, despite loging on console,
 
 https://github.com/SiavashNamiranian/Weather-Dashboard_Ch6
 <br>
@@ -17,7 +17,7 @@ N/A
 
 ## Usage
 
-This Website can provide current as well as five day forecast on any selected city, which then maintains that data for easier recall of data by users (unfortunately the recall part is not working yet)
+This Website can provide current as well as five day forecast on any selected city, which then maintains that data for easier recall of data by users 
 ## Credits
 
 N/A
